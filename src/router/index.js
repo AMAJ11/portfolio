@@ -6,25 +6,23 @@
 
 // Composables
 import { createRouter, createWebHistory } from "vue-router/auto";
-import HomeView from "../pages/home.vue";
+import portfolio from "../pages/home.vue";
 import about from "../pages/About.vue";
 import project from "../pages/Project.vue";
 import contact from "../pages/contact.vue";
 const routes = [
   {
-    path: "/",
-    name: "home",
-    component: HomeView,
+    path: "/home",
+    component: portfolio,
   },
   {
-    path: "/about",
     name: "about",
     component: about,
   },
   {
     path: "/project",
-    name: "project",
-    component: project,
+      name: "project",
+     component: project,
   },
   {
     path: "/contact",

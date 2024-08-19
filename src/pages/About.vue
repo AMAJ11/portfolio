@@ -20,7 +20,7 @@
               width: 250px;
               background: black;
               border-radius: 160px;
-              translate: 0 -125px;
+              translate: 0 -65px;
             "
             src="../assets/light-bulb.gif"
             alt=""
@@ -122,7 +122,6 @@
 
 <script>
 export default {
-  name: "about",
   data: function () {
     return {
       id: true,
