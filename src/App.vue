@@ -23,7 +23,7 @@
           append-icon="mdi-home"
           color="primary"
           title="Home"
-          to="/home"
+          to="/"
           value="home"
         ></v-list-item>
         <v-list-item
