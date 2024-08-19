@@ -4,7 +4,7 @@
     <v-app-bar theme="dark" class="pr-5">
       <v-app-bar-title>Portfolio</v-app-bar-title>
       <v-spacer></v-spacer>
-      <v-btn class="hidden-sm-and-down" color="primary" to="/home">Home</v-btn>
+      <v-btn class="hidden-sm-and-down" color="primary" to="/">Home</v-btn>
       <v-btn class="hidden-sm-and-down" to="/about">About</v-btn>
       <v-btn class="hidden-sm-and-down" to="/project">project</v-btn>
       <v-btn class="hidden-sm-and-down" to="/contact">Contact</v-btn>
