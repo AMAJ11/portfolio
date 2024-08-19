@@ -12,7 +12,7 @@ import project from "../pages/Project.vue";
 import contact from "../pages/contact.vue";
 const routes = [
   {
-    path: "/home",
+    path: "/portfolio",
     component: portfolio,
   },
   {
