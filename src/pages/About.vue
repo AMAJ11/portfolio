@@ -12,22 +12,22 @@
         </v-col>
       </v-row>
       <v-row class="mt-2 col">
-        <v-col class="mt-2 align-center" cols="12" lg="3">
+        <v-col class="mt-2 align-center" style="display: flex; flex-direction: column;justify-items: flex-start;" cols="12" lg="3">
           <h1>Skills</h1>
           <img
-            class="idea hidden-md-and-down"
+            class="idea"
             style="
               width: 250px;
               background: black;
               border-radius: 160px;
-              translate: 0 -65px;
+
             "
             src="../assets/light-bulb.gif"
             alt=""
           />
         </v-col>
         <v-spacer></v-spacer>
-        <v-col cols="12" lg="8" class="">
+        <v-col class="" cols="12" lg="8" style="overflow: hidden;">
           <v-row>
             <v-col cols="5" sm="4" md="4" lg="3" class="img"
               ><img
@@ -73,7 +73,7 @@
             </v-col>
             <v-col cols="5" sm="4" md="4" lg="3" class="img"
               ><img
-                data-aos="fade-down"
+                data-aos="fade-left"
                 data-aos-duration="2500"
                 style="width: 100px"
                 src="../assets/vuetify.png"
@@ -94,7 +94,7 @@
             </v-col>
             <v-col cols="5" sm="4" md="4" lg="3" class="img"
               ><img
-                data-aos="fade-down"
+                data-aos="fade-left"
                 data-aos-duration="2500"
                 style="width: 100px"
                 src="../assets/cmd.png"
@@ -159,8 +159,7 @@ transition: 0.1s;
   scale: 1.1;
 }
 .idea {
-  position: absolute;
-  bottom: 95px;
+
 }
 @media (max-width: 1000px) {
 }

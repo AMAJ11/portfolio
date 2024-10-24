@@ -16,6 +16,87 @@
       :modules="modules"
       class="mySwiper"
     >
+    <swiper-slide>
+      <v-card>
+        <v-card-title primary-title> Prayer & quraan App </v-card-title>
+        <img src="../assets/Screenshot from 2024-10-24 11-37-09.png" />
+        <v-card-actions class="d-flex">
+          <v-rating
+            size="md"
+            hover
+            color="primary"
+            half-increments
+          ></v-rating>
+          <v-spacer></v-spacer>
+          <a href="https://prayer-alpha.vercel.app/"
+            ><v-btn color="blue-lighten-3" prepend-icon="mdi-share"
+              >view</v-btn
+            ></a
+          >
+        </v-card-actions>
+      </v-card>
+    </swiper-slide>
+
+    <swiper-slide>
+      <v-card>
+        <v-card-title primary-title> Full E-commerce Website </v-card-title>
+        <img src="../assets/Screenshot from 2024-10-24 11-40-57.png" />
+        <v-card-actions class="d-flex">
+          <v-rating
+            size="md"
+            hover
+            color="primary"
+            half-increments
+          ></v-rating>
+          <v-spacer></v-spacer>
+          <a href="https://e-commerce-18px.vercel.app/"
+            ><v-btn color="blue-lighten-3" prepend-icon="mdi-share"
+              >View</v-btn
+            ></a
+          >
+        </v-card-actions>
+      </v-card>
+    </swiper-slide>
+    <swiper-slide>
+      <v-card>
+        <v-card-title primary-title> Movie app Api </v-card-title>
+        <img src="../assets/Screenshot from 2024-10-24 11-48-30.png" />
+        <v-card-actions class="d-flex">
+          <v-rating
+            size="md"
+            hover
+            color="primary"
+            half-increments
+          ></v-rating>
+          <v-spacer></v-spacer>
+          <a href="https://movie-app-umber-beta.vercel.app/"
+            ><v-btn color="blue-lighten-3" prepend-icon="mdi-share"
+              >view</v-btn
+            ></a
+          >
+        </v-card-actions>
+      </v-card>
+    </swiper-slide>
+    <swiper-slide>
+      <v-card>
+        <v-card-title primary-title> Contacts manager </v-card-title>
+        <img src="../assets/Annotation 2024-06-28 195541.png" />
+        <v-card-actions class="d-flex">
+          <v-rating
+            size="md"
+            hover
+            color="primary"
+            half-increments
+          ></v-rating>
+          <v-spacer></v-spacer>
+          <a href="https://amaj11.github.io/contact/"
+            ><v-btn color="blue-lighten-3" prepend-icon="mdi-share"
+              >view</v-btn
+            ></a
+          >
+        </v-card-actions>
+      </v-card>
+    </swiper-slide>
       <swiper-slide>
         <v-card>
           <v-card-title primary-title> Islamic App </v-card-title>
@@ -58,26 +139,7 @@
         </v-card>
       </swiper-slide>
 
-      <swiper-slide>
-        <v-card>
-          <v-card-title primary-title> Contacts manager </v-card-title>
-          <img src="../assets/Annotation 2024-06-28 195541.png" />
-          <v-card-actions class="d-flex">
-            <v-rating
-              size="md"
-              hover
-              color="primary"
-              half-increments
-            ></v-rating>
-            <v-spacer></v-spacer>
-            <a href="https://amaj11.github.io/contact/"
-              ><v-btn color="blue-lighten-3" prepend-icon="mdi-share"
-                >view</v-btn
-              ></a
-            >
-          </v-card-actions>
-        </v-card>
-      </swiper-slide>
+
 
       <swiper-slide>
         <v-card>
@@ -120,6 +182,8 @@
           </v-card-actions>
         </v-card>
       </swiper-slide>
+
+
     </swiper>
   </div>
 </template>

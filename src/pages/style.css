@@ -1,28 +1,17 @@
 #app {
   height: 100%;
 }
-html,
-body {
-  position: relative;
-  height: 100%;
-}
 
-body {
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  margin: 0;
-  padding: 0;
-}
 
 .swiper {
-  width: 100%;
+  width: 90%;
   padding-top: 80px;
 }
 
 .swiper-slide {
   background-position: center;
   background-size: cover;
-  width: 580px;
+  width: 500px;
   height: 500px;
 }
 

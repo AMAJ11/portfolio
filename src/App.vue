@@ -1,8 +1,8 @@
 <template>
   <router-view />
   <v-layout>
-    <v-app-bar theme="dark" class="pr-5">
-      <v-app-bar-title>Portfolio</v-app-bar-title>
+    <v-app-bar class="pr-5">
+      <v-app-bar-title>AMAJ</v-app-bar-title>
       <v-spacer></v-spacer>
       <v-btn class="hidden-sm-and-down" color="primary" to="/">Home</v-btn>
       <v-btn class="hidden-sm-and-down" to="/about">About</v-btn>
@@ -67,3 +67,4 @@ export default {
   },
 };
 </script>
+

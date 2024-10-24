@@ -24,9 +24,9 @@
           <img src="../assets/AMAJ - Copy.png" alt="" style="width:350px;border-radius:30%;padding:10px">
         </v-col>
       </v-row>
-      <div class="ocean">
+      <div class="ocean" style="height: 5px">
 
-        <div class="wave"></div>
+        <div class="wave" style=""></div>
       </div>
     </v-container>
   </div>
@@ -46,7 +46,7 @@ body {
   height: 5%;
   width:100%;
   position:absolute;
-  bottom:0;
+  bottom:-15%;
   left:0;
   background: #015871;
 }

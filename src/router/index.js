@@ -7,7 +7,7 @@
 // Composables
 import { createRouter, createWebHistory } from "vue-router";
 import portfolio from "../pages/abhome.vue";
-import about from "../pages/about.vue";
+import about from "../pages/About.vue";
 import project from "../pages/Project.vue";
 import contact from "../pages/contact.vue";
 const routes = [
