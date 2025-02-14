@@ -66,11 +66,14 @@ body {
 }
 
 @media (max-height:450px) {
- .ocean{display: none;
+ .ocean{display: none;}
   .home {
    padding-top: 0;
   }
-}
+  .home h3{
+    font-size: small !important;
+  }
+  .home .bt{font-size: small !important}
 
 }
 @media (min-height:450px){
