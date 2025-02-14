@@ -16,6 +16,7 @@ export default defineConfig({
     Vue({
       template: { transformAssetUrls }
     }),
+    
     // https://github.com/vuetifyjs/vuetify-loader/tree/master/packages/vite-plugin#readme
     Vuetify({
       autoImport: true,
@@ -50,5 +51,9 @@ export default defineConfig({
   },
   server: {
     port: 3000,
+    historyApiFallback: true
   },
+  build: {
+    outDir: 'dist'
+  }
 })
