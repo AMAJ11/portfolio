@@ -142,7 +142,6 @@ export default {
   methods: {
 
     validate: async function () {
-      const chatId = ''; // استبدل بمعرف الدردشة أو المستخدم
       const apiUrl = `https://api.telegram.org/bot7627006432:AAEOv-s0PkynaJVa7ewRfdGDPaEK_pncovY/sendMessage?chat_id=6568921630&text=${encodeURIComponent("Name: " + this.userName + "\n" + "Phone Number: " + this.num + "\n" + this.message)}`;
       await this.$refs.form.validate()
         .then(valid => {
