@@ -5,7 +5,7 @@
  */
 
 // Composables
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHashHistory } from "vue-router";
 import portfolio from "../pages/abhome.vue";
 import about from "../pages/About.vue";
 import project from "../pages/Project.vue";
@@ -29,7 +29,7 @@ const routes = [
   }
 ];
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHashHistory(),
   routes,
 });
 
