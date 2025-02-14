@@ -2,7 +2,7 @@
   <div class="home" style="height: 100vh">
     <v-container grid-list-xs>
       <v-row class="mt-16" style="position: fixed">
-        <v-col cols="12" sm="12" md="8" lg="8">
+        <v-col cols="12" sm="8" md="8" lg="8">
           <h1 class="text-primary" data-aos="fade-right" data-aos-duration="1000">
             Ammar AJ, <br />
             Front-End developer
@@ -11,17 +11,21 @@
             Hello, Im Front-end Developer Using Vue js, And I Am Always Eager To
             Evolve, Improve My skills, And Acquire New Ones
           </h3>
-          <div class="btn" data-aos="fade-right" data-aos-duration="1000">
-            <v-btn color="primary" variant="tonal" to="/project" class="bt mr-3"
-              >My Projects <v-icon>mdi-pencil</v-icon>
-            </v-btn>
-            <v-btn color="primary" variant="tonal" class="bt" to="/contact"
-              >Contact me <v-icon>mdi-phone</v-icon>
+          <div class="btn"  data-aos="fade-right" data-aos-duration="1000">
+            <v-btn color="primary" style="min-width: 200px;" variant="tonal" target="_blank" href="https://drive.google.com/file/d/1-R-kT8ufcvO2SpTgejol8MorImPxx8zg/view?usp=drive_link" class="bt mr-3"
+              >Download My CV <v-icon>mdi-download</v-icon>
             </v-btn>
           </div>
         </v-col>
-        <v-col class="hidden-md-and-down" lg="4">
-          <img src="../assets/AMAJ - Copy.png" alt="" style="width:350px;border-radius:30%;padding:10px">
+        <v-col class="hidden-xs " sm="4" lg="4">
+          <div class="card1">
+            <img src="../assets/AMAJ__1_-removebg-preview.png" alt="" style="width:90%">
+            <span class="top"></span>
+            <span class="right"></span>
+            <span class="bottom"></span>
+            <span class="left"></span>
+          </div>
+
         </v-col>
       </v-row>
       <div class="ocean" style="height: 5px">
@@ -124,5 +128,169 @@ body {
     margin-bottom: 20px;
     font-size: 30px;
   }
+}
+
+
+
+
+
+.card1 {
+  margin-right: 10px;
+  position: relative;
+  color: #fff;
+  background: transparent;
+  overflow: hidden;
+
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1em;
+}
+
+p {
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+span {
+  position: absolute;
+  border-radius: 100vmax;
+}
+
+.top {
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 5px;
+  background: linear-gradient(
+    90deg,
+    transparent 50%,
+    rgba(5, 5, 111, 0.5),
+    rgb(13, 17, 237)
+  );
+}
+
+.bottom {
+  right: 0;
+  bottom: 0;
+  height: 5px;
+  background: linear-gradient(
+    90deg,
+    rgb(72, 0, 255),
+    rgba(0, 110, 255, 0.5),
+    transparent 50%
+  );
+}
+
+.right {
+  top: 0;
+  right: 0;
+  width: 5px;
+  height: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 30%,
+    rgba(0, 255, 255, 0.5),
+    rgb(0, 255, 255)
+  );
+}
+
+.left {
+  left: 0;
+  bottom: 0;
+  width: 5px;
+  height: 0;
+  background: linear-gradient(
+    180deg,
+    rgb(164, 161, 255),
+    rgba(64, 0, 255, 0.5),
+    transparent 70%
+  );
+}
+
+.top {
+  animation: animateTop 3s ease-in-out infinite;
+}
+
+.bottom {
+  animation: animateBottom 3s ease-in-out infinite;
+}
+
+.right {
+  animation: animateRight 3s ease-in-out infinite;
+}
+
+.left {
+  animation: animateLeft 3s ease-in-out infinite;
+}
+
+@keyframes animateTop {
+  25% {
+    width: 100%;
+    opacity: 1;
+  }
+
+  30%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes animateBottom {
+  0%,
+  50% {
+    opacity: 0;
+    width: 0;
+  }
+
+  75% {
+    opacity: 1;
+    width: 100%;
+  }
+
+  76%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes animateRight {
+  0%,
+  25% {
+    opacity: 0;
+    height: 0;
+  }
+
+  50% {
+    opacity: 1;
+    height: 100%;
+  }
+
+  55%,
+  100% {
+    height: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes animateLeft {
+  0%,
+  75% {
+    opacity: 0;
+    bottom: 0;
+    height: 0;
+  }
+
+  100% {
+    opacity: 1;
+    height: 100%;
+  }
+}
+
+@media (max-width:1000px) {
+  .card1 img{height: 200px; width:200px !important; margin: 0 !important;}
+.card1{display: block;}
 }
 </style>

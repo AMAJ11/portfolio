@@ -1,6 +1,7 @@
 <template>
   <div class="pro">
     <swiper
+
       :effect="'coverflow'"
       :grabCursor="true"
       :centeredSlides="true"
@@ -14,7 +15,7 @@
       }"
       :pagination="true"
       :modules="modules"
-      class="mySwiper"
+      class="mySwiper hidden-sm-and-down"
     >
     <swiper-slide>
       <v-card>
@@ -185,6 +186,104 @@
 
 
     </swiper>
+
+    <div class="hidden-md-and-up mt-5" id="proj1">
+      <h2 style="text-align: center;opacity: 0.3;">MY PROJECTS </h2>
+      <v-img src="../assets/laptop-3214756_640.png" style="width:70%;margin:auto" </v-img>
+        <v-row class="mt-4 pa-5">
+          <v-col sm="6" cols="12">
+            <v-card variant="outlined" class="bg-grey-lighten-3">
+              <div class="bg-grey"> <v-card-title>MovieApp</v-card-title>
+                <v-card-text>
+                  <p> This App that you can search of movie and show trailer of movie and Actors & others<br> It
+                    develope with vue js&vuetify&api </p>
+                </v-card-text>
+              </div>
+
+              <v-divider :thickness="6" color="black" class="mb-2"></v-divider>
+              <v-img src="../assets/5.png" style="width:100%;max-height:350px"></v-img>
+              <v-img src="../assets/6.png" style="width:100%;max-height:350px"></v-img>
+              <v-card-actions style="display: flex;justify-content: center;">
+                <div>
+                  <v-btn href="https://movie-app-umber-beta.vercel.app/" variant="flat" color="primary" rounded="10"
+                    class="mr-3"><v-icon>mdi-eye</v-icon></v-btn>
+                  <v-btn href="https://github.com/AMAJ11/MovieApp" variant="flat" color="primary"
+                    rounded="10"><v-icon>mdi-github</v-icon></v-btn>
+                </div>
+              </v-card-actions>
+            </v-card>
+
+          </v-col>
+          <v-col sm="6" cols="12">
+            <v-card class="bg-grey-lighten-3" variant="outlined">
+              <div class="bg-blue-lighten-3"> <v-card-title>Islamic App</v-card-title>
+                <v-card-text>
+                  <p> This App that you can show pryertime and quraan read <br> It develope with vue js&vuetify&api </p>
+                </v-card-text>
+              </div>
+
+              <v-divider :thickness="6" color="black" class="mb-2"></v-divider>
+              <v-img src="../assets/Screenshot from 2024-10-24 11-37-09.png" style="width:100%;max-height:350px"></v-img>
+              <v-img src="../assets/Screenshot from 2025-02-09 19-39-48 copy.png" style="width:100%;max-height:350px"></v-img>
+              <v-card-actions style="display: flex;justify-content: center;">
+                <div>
+                  <v-btn href="https://prayer-alpha.vercel.app/" variant="flat" color="primary" rounded="10"
+                    class="mr-3"><v-icon>mdi-eye</v-icon></v-btn>
+                  <v-btn href="https://github.com/AMAJ11/Prayer" variant="flat" color="primary"
+                    rounded="10"><v-icon>mdi-github</v-icon></v-btn>
+                </div>
+              </v-card-actions>
+            </v-card>
+
+          </v-col>
+          <v-col sm="6" cols="12">
+            <v-card class="bg-grey-lighten-3" variant="outlined">
+              <div class="bg-success"> <v-card-title>E-commerce Website</v-card-title>
+                <v-card-text>
+                  <p> An full Ecommerce Website <br> It develope with vue js&vuetify&api </p>
+                </v-card-text>
+              </div>
+
+              <v-divider :thickness="6" color="black" class="mb-2"></v-divider>
+              <v-img src="../assets/Screenshot from 2024-10-24 11-40-57.png" style="width:100%;max-height:350px"></v-img>
+              <v-img src="../assets/Screenshot from 2025-02-09 20-00-43.png" style="width:100%;max-height:350px"></v-img>
+              <v-card-actions style="display: flex;justify-content: center;">
+                <div>
+                  <v-btn href="https://e-commerce-18px.vercel.app/" variant="flat" color="primary" rounded="10"
+                    class="mr-3"><v-icon>mdi-eye</v-icon></v-btn>
+                  <v-btn href="https://github.com/AMAJ11/E-commerce" variant="flat" color="primary"
+                    rounded="10"><v-icon>mdi-github</v-icon></v-btn>
+                </div>
+              </v-card-actions>
+            </v-card>
+
+          </v-col>
+          <v-col sm="6" cols="12">
+            <v-card class="bg-grey-lighten-3" variant="outlined">
+              <div class="bg-brown"> <v-card-title>Contact Manager</v-card-title>
+                <v-card-text>
+                  <p> This CRUD App that you can manage your contacts It develope with vue </p>
+                </v-card-text>
+              </div>
+
+              <v-divider :thickness="6" color="black" class="mb-2"></v-divider>
+              <v-img src="../assets/3.png" style="width:100%;max-height:350px"></v-img>
+              <v-img src="../assets/4.png" style="width:100%;max-height:350px"></v-img>
+              <v-card-actions style="display: flex;justify-content: center;">
+                <div>
+                  <v-btn href="https://amaj11.github.io/contact/" variant="flat" color="primary" rounded="10"
+                    class="mr-3"><v-icon>mdi-eye</v-icon></v-btn>
+                  <v-btn href="https://github.com/AMAJ11/contact-manager" variant="flat" color="primary"
+                    rounded="10"><v-icon>mdi-github</v-icon></v-btn>
+                </div>
+              </v-card-actions>
+            </v-card>
+
+          </v-col>
+        </v-row>
+    </div>
+
+
   </div>
 </template>
 <script>
@@ -214,4 +313,6 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.pro{min-height: 100vh;}
+</style>

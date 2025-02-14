@@ -1,5 +1,6 @@
 <template>
   <div class="contact">
+    <v-container>
     <v-row class="ro mt-16">
       <v-col cols="12" md="5" sm="5" style="height: 50vh; text-align: center">
         <h2>Contact Me</h2>
@@ -97,17 +98,82 @@
 
           <v-col cols="12" md="12"
             >
+            <v-card class="mt-8" theme="dark" style="width: 80%;margin:auto">
+              <v-form action="" @submit.prevent="validate" ref="form">
+                <v-text-field v-model="this.userName" label="Name" :rules="this.usernamerule"></v-text-field>
+                <v-text-field type="number" v-model="this.num" label="Phone Number"
+                  :rules="this.usernamerule"></v-text-field>
+                <v-textarea v-model="this.message" label="Message" :rules="this.usernamerule"></v-textarea>
+                <v-btn type="submit" block>SEND</v-btn>
+              </v-form>
+            </v-card>
             <h2>Gmail: apo.zouher@gmail.com</h2>
             </v-col
           >
         </v-row>
       </v-col>
     </v-row>
+  </v-container>
   </div>
+  <v-dialog v-model="this.show" class="w-25">
+    <v-card class=""><v-card-title class="text-success"> Message Sending Successfully </v-card-title>
+      <v-btn color="red" append-icon="mdi-close" @click="this.show=false">close</v-btn>
+    </v-card>
+
+  </v-dialog>
 </template>
 
 <script>
-export default {};
+import axios from 'axios';
+export default {
+  data: function () {
+    return {
+      show:false,
+      num: '',
+      userName: "",
+      message: "",
+      usernamerule:
+        [(userName) => {
+          if (userName) return true
+          return 'You must enter this Field.'
+        }],
+    }
+  },
+  methods: {
+
+    validate: async function () {
+      const botToken = '7627006432:AAEOv-s0PkynaJVa7ewRfdGDPaEK_pncovY'; // استبدل برمز الوصول الخاص بك
+      const chatId = '6568921630'; // استبدل بمعرف الدردشة أو المستخدم
+      const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent("Name: " + this.userName + "\n" + "Phone Number: " + this.num + "\n" + this.message)}`;
+      await this.$refs.form.validate()
+        .then(valid => {
+          if (valid.valid == true) {
+
+            axios.post(apiUrl)
+              .then(response => {
+                console.log('Message sent:', response.data);
+                this.show= true;
+                this.userName = ""
+                this.message = ""
+                this.num = ""
+              })
+              .catch(error => {
+                console.error('Error sending message:', error);
+              });
+
+
+
+
+          }
+        })
+    }
+
+
+
+  },
+
+
+};
 </script>
 
 <style scoped>
@@ -139,4 +205,5 @@ export default {};
   animation: none;
   scale: 1.1;
 }
+.contact{min-height: 100vh;}
 </style>
