@@ -73,7 +73,7 @@ body {
   .home h3{
     font-size: small !important;
   }
-  .home .bt{font-size: small !important}
+  .home .bt{font-size: 10px;height: 20px !important;}
 
 }
 @media (min-height:450px){
