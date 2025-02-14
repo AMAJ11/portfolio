@@ -67,6 +67,9 @@ body {
 
 @media (max-height:450px) {
  .ocean{display: none;
+  .home {
+   padding-top: 0;
+  }
 }
 
 }
