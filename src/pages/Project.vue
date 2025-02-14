@@ -189,7 +189,6 @@
 
     <div class="hidden-md-and-up mt-5" id="proj1">
       <h2 style="text-align: center;opacity: 0.3;">MY PROJECTS </h2>
-      <v-img src="../assets/laptop-3214756_640.png" style="width:70%;margin:auto" </v-img>
         <v-row class="mt-4 pa-5">
           <v-col sm="6" cols="12">
             <v-card variant="outlined" class="bg-grey-lighten-3">
