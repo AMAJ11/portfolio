@@ -1,7 +1,7 @@
 <template>
   <div class="home" style="height: auto">
     <v-container grid-list-xs>
-      <v-row class="mt-16" style="position: fixed">
+      <v-row class="mt-16" style="height:auto">
         <v-col cols="12" sm="8" md="8" lg="8">
           <h1 class="text-primary" data-aos="fade-right" data-aos-duration="1000">
             Ammar AJ, <br />
@@ -66,9 +66,13 @@ body {
 }
 
 @media (max-height:450px) {
- .ocean{display: none;}
+ .ocean{display: none;
 }
 
+}
+@media (min-height:450px){
+  .home{position: fixed;}
+}
 /* .wave:nth-of-type(2) {
   top: -175px;
   animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite, swell 7s ease -1.25s infinite;
@@ -96,7 +100,6 @@ body {
   width: 100%;
   padding-top: 2%;
   min-height: 100vh;
-  position:fixed;
   z-index: 1;
 }
 .home .btn {
