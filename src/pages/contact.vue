@@ -142,9 +142,8 @@ export default {
   methods: {
 
     validate: async function () {
-      const botToken = '7627006432:AAEOv-s0PkynaJVa7ewRfdGDPaEK_pncovY'; // استبدل برمز الوصول الخاص بك
-      const chatId = '6568921630'; // استبدل بمعرف الدردشة أو المستخدم
-      const apiUrl = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent("Name: " + this.userName + "\n" + "Phone Number: " + this.num + "\n" + this.message)}`;
+      const chatId = ''; // استبدل بمعرف الدردشة أو المستخدم
+      const apiUrl = `https://api.telegram.org/bot7627006432:AAEOv-s0PkynaJVa7ewRfdGDPaEK_pncovY/sendMessage?chat_id=6568921630&text=${encodeURIComponent("Name: " + this.userName + "\n" + "Phone Number: " + this.num + "\n" + this.message)}`;
       await this.$refs.form.validate()
         .then(valid => {
           if (valid.valid == true) {
