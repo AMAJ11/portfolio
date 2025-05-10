@@ -12,7 +12,7 @@
             Evolve, Improve My skills, And Acquire New Ones
           </h3>
           <div class="btn"  data-aos="fade-right" data-aos-duration="1000">
-            <v-btn color="primary" style="min-width: 200px;" variant="tonal" target="_blank" href="https://drive.google.com/file/d/1VesNi1C3P-7dcMWjsY7bkqwbjUFbq2bO/view?usp=drive_link" class="bt mr-3"
+            <v-btn color="primary" style="min-width: 200px;" variant="tonal" target="_blank" href="https://drive.google.com/file/d/1llelccZg8mW4bNG85TqdhTN5ngn_ieDb/view?usp=drive_link" class="bt mr-3"
               >Download My CV <v-icon>mdi-download</v-icon>
             </v-btn>
           </div>
