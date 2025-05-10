@@ -137,9 +137,9 @@
 
         <v-col sm="6" cols="12">
           <v-card class="bg-grey-lighten-3" variant="outlined">
-            <div class="bg-blue-lighten-3"> <v-card-title>Islamic App</v-card-title>
+            <div class="bg-blue-lighten-3"> <v-card-title>Social media WebApp</v-card-title>
               <v-card-text>
-                <p> This App that you can show pryertime and quraan read <br> It develope with vue js&vuetify&api </p>
+                <p> This App that you can write a posts & react with anyone posts <br> It develope with vue js&vuetify&api </p>
               </v-card-text>
             </div>
             <v-divider :thickness="6" color="black" class="mb-2"></v-divider>
