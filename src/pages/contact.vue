@@ -49,11 +49,10 @@
 
             <v-col cols="12" md="12">
               <v-card class="mt-8" theme="dark" style="width: 80%;margin:auto">
-                <v-form action="" @submit.prevent="validate" ref="form">
-                  <v-text-field v-model="this.userName" label="Name" :rules="this.usernamerule"></v-text-field>
-                  <v-text-field type="number" v-model="this.num" label="Phone Number"
-                    :rules="this.usernamerule"></v-text-field>
-                  <v-textarea v-model="this.message" label="Message" :rules="this.usernamerule"></v-textarea>
+                <v-form @submit.prevent="validated" ref="form">
+                  <v-text-field v-model="userName" label="Name" :rules="usernamerule"></v-text-field>
+                  <v-text-field type="number" v-model="this.num" label="Phone Number" :rules="numRule"></v-text-field>
+                  <v-textarea v-model="this.message" label="Message" :rules="messageRule"></v-textarea>
                   <v-btn type="submit" :loading="sendLoading" block>SEND</v-btn>
                 </v-form>
               </v-card>
@@ -67,7 +66,9 @@
   <v-dialog v-model="show" class="w-75 w-md-50">
     <v-card class=""><v-card-title class="text-success" style="height: 20vh;"> Message Sending Successfully
       </v-card-title>
-      <v-btn color="red" append-icon="mdi-close" @click="this.show = false">close</v-btn>
+      <v-card-actions>
+        <v-btn color="red" append-icon="mdi-close" @click="this.show = false">close</v-btn>
+      </v-card-actions>
     </v-card>
 
   </v-dialog>
@@ -84,15 +85,31 @@ export default {
       message: "",
       sendLoading: false,
       usernamerule:
-        [(userName) => {
-          if (userName) return true
-          return 'You must enter this Field.'
+        [() => {
+          if (this.userName) return true
+          else {
+            return 'You must enter this Field.'
+          }
+        }],
+         numRule:
+        [() => {
+          if (this.num) return true
+          else {
+            return 'You must enter this Field.'
+          }
+        }],
+         messageRule:
+        [() => {
+          if (this.message) return true
+          else {
+            return 'You must enter this Field.'
+          }
         }],
     }
   },
   methods: {
 
-    validate: async function () {
+    validated: async function () {
 
       const apiUrl = `https://api.telegram.org/bot7627006432:AAEOv-s0PkynaJVa7ewRfdGDPaEK_pncovY/sendMessage?chat_id=6568921630&text=${encodeURIComponent("Name: " + this.userName + "\n" + "Phone Number: " + this.num + "\n" + this.message)}`;
       await this.$refs.form.validate()
@@ -101,22 +118,19 @@ export default {
             this.sendLoading = true
             axios.post(apiUrl)
               .then(response => {
-                this.sendLoading = false
+
                 console.log('Message sent:', response.data);
                 this.show = true;
-                this.userName = ""
-                this.message = ""
-                this.num = ""
 
+                this.sendLoading = false
               })
               .catch(error => {
                 console.error('Error sending message:', error);
               });
-
-
-
-
           }
+          this.num = null
+          this.userName = null
+          this.message = null
         })
     }
 

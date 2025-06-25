@@ -1,7 +1,7 @@
 <template>
   <div class="pro">
     <swiper :effect="'coverflow'" :grabCursor="true" :centeredSlides="true" :slidesPerView="'auto'" :coverflowEffect="{
-      rotate: 50,
+      rotate: 60,
       stretch: 0,
       depth: 100,
       modifier: 1,
@@ -15,6 +15,19 @@
             <v-rating size="md" hover color="primary" half-increments></v-rating>
             <v-spacer></v-spacer>
             <a href="https://nova-write.vercel.app"><v-btn color="blue-lighten-3"
+                prepend-icon="mdi-share">view</v-btn></a>
+          </v-card-actions>
+        </v-card>
+      </swiper-slide>
+
+      <swiper-slide>
+        <v-card>
+          <v-card-title primary-title> Revenu Manager</v-card-title>
+          <img src="../assets/Screenshot (24).png" />
+          <v-card-actions class="d-flex">
+            <v-rating size="md" hover color="primary" half-increments></v-rating>
+            <v-spacer></v-spacer>
+            <a href="https://revenuemanagement-omega.vercel.app/"><v-btn color="blue-lighten-3"
                 prepend-icon="mdi-share">view</v-btn></a>
           </v-card-actions>
         </v-card>
@@ -76,46 +89,21 @@
           </v-card-actions>
         </v-card>
       </swiper-slide>
-      <swiper-slide>
-        <v-card>
-          <v-card-title primary-title> Islamic App </v-card-title>
-          <img src="../assets/1.png" />
-          <v-card-actions class="d-flex">
-            <v-rating size="md" hover color="primary" half-increments></v-rating>
-            <v-spacer></v-spacer>
-            <a href="https://islami.en.uptodown.com/windows"><v-btn color="blue-lighten-3"
-                prepend-icon="mdi-share">Download</v-btn></a>
-          </v-card-actions>
-        </v-card>
-      </swiper-slide>
 
       <swiper-slide>
         <v-card>
-          <v-card-title primary-title> Digital clock </v-card-title>
-          <img src="../assets/3.png" />
+          <v-card-title primary-title> Trip Website </v-card-title>
+          <img src="../assets/Screenshot (25).png" />
           <v-card-actions class="d-flex">
             <v-rating size="md" hover color="primary" half-increments></v-rating>
             <v-spacer></v-spacer>
-            <a href="https://digital-clock.en.uptodown.com/windows"><v-btn color="blue-lighten-3"
-                prepend-icon="mdi-share">Download</v-btn></a>
-          </v-card-actions>
-        </v-card>
-      </swiper-slide>
-
-
-
-      <swiper-slide>
-        <v-card>
-          <v-card-title primary-title> Almajd Academy </v-card-title>
-          <img src="../assets/Annotation 2024-07-27 202105.png" />
-          <v-card-actions class="d-flex">
-            <v-rating size="md" hover color="primary" half-increments></v-rating>
-            <v-spacer></v-spacer>
-            <a href="https://amaj11.github.io/ALMAJD/"><v-btn color="blue-lighten-3"
+            <a href="https://travel-website-psi-tawny.vercel.app/auth/login"><v-btn color="blue-lighten-3"
                 prepend-icon="mdi-share">view</v-btn></a>
           </v-card-actions>
         </v-card>
       </swiper-slide>
+
+
 
       <swiper-slide>
         <v-card>
@@ -139,22 +127,50 @@
           <v-card class="bg-grey-lighten-3" variant="outlined">
             <div class="bg-blue-lighten-3"> <v-card-title>Social media WebApp</v-card-title>
               <v-card-text>
-                <p> This App that you can write a posts & react with anyone posts <br> It develope with vue js&vuetify&api </p>
+                <p> This App that you can write a posts & react with anyone posts <br> It develope with vue
+                  js&vuetify&api </p>
               </v-card-text>
             </div>
             <v-divider :thickness="6" color="black" class="mb-2"></v-divider>
-            <v-img src="../assets/WhatsApp Image 2025-05-10 at 6.19.27 PM.jpeg" style="width:100%;max-height:350px"></v-img>
+            <v-img src="../assets/WhatsApp Image 2025-05-10 at 6.19.27 PM.jpeg"
+              style="width:100%;max-height:350px"></v-img>
             <v-img src="../assets/WhatsApp Image 2025-05-10 at 6.19.24 PM.jpeg"
               style="width:100%;max-height:350px"></v-img>
             <v-card-actions style="display: flex;justify-content: center;">
               <div>
-                <v-btn href="https://nova-write.vercel.app" variant="flat" color="primary" rounded="10"
+                <v-btn icon href="https://nova-write.vercel.app" variant="flat" color="primary" rounded="10"
                   class="mr-3"><v-icon>mdi-eye</v-icon></v-btn>
               </div>
             </v-card-actions>
           </v-card>
 
         </v-col>
+
+        <v-col sm="6" cols="12">
+          <v-card class="bg-grey-lighten-3" variant="outlined">
+            <div class="bg-blue-lighten-3"> <v-card-title>Revenu manager</v-card-title>
+              <v-card-text>
+                <p> This site is where you can add operations and planes in your store and manage the register and
+                  business accounts. <br> It develope with vue js & vuetify & Node js & express & mongodb & jwt </p>
+              </v-card-text>
+            </div>
+
+            <v-divider :thickness="6" color="black" class="mb-2"></v-divider>
+            <v-img src="../assets/Screenshot (24).png" style="width:100%;max-height:350px"></v-img>
+            <v-img src="../assets/Screenshot (26).png" style="width:100%;max-height:350px"></v-img>
+            <v-card-actions style="display: flex;justify-content: center;">
+              <div> 
+                <v-btn icon href="https://revenuemanagement-omega.vercel.app/" variant="flat" color="primary" rounded="10"
+                  class="mr-3"><v-icon>mdi-eye</v-icon></v-btn>
+                <v-btn icon href="https://github.com/AMAJ11/businessaccountmanagement" variant="flat" color="primary"
+                  rounded="10"><v-icon>mdi-github</v-icon></v-btn>
+              </div>
+            </v-card-actions>
+          </v-card>
+
+        </v-col>
+
+
 
         <v-col sm="6" cols="12">
           <v-card variant="outlined" class="bg-grey-lighten-3">
@@ -169,9 +185,9 @@
             <v-img src="../assets/6.png" style="width:100%;max-height:350px"></v-img>
             <v-card-actions style="display: flex;justify-content: center;">
               <div>
-                <v-btn href="https://movie-app-umber-beta.vercel.app/" variant="flat" color="primary" rounded="10"
+                <v-btn icon href="https://movie-app-umber-beta.vercel.app/" variant="flat" color="primary" rounded="10"
                   class="mr-3"><v-icon>mdi-eye</v-icon></v-btn>
-                <v-btn href="https://github.com/AMAJ11/MovieApp" variant="flat" color="primary"
+                <v-btn icon href="https://github.com/AMAJ11/MovieApp" variant="flat" color="primary"
                   rounded="10"><v-icon>mdi-github</v-icon></v-btn>
               </div>
             </v-card-actions>
@@ -191,9 +207,9 @@
               style="width:100%;max-height:350px"></v-img>
             <v-card-actions style="display: flex;justify-content: center;">
               <div>
-                <v-btn href="https://prayer-alpha.vercel.app/" variant="flat" color="primary" rounded="10"
+                <v-btn icon href="https://prayer-alpha.vercel.app/" variant="flat" color="primary" rounded="10"
                   class="mr-3"><v-icon>mdi-eye</v-icon></v-btn>
-                <v-btn href="https://github.com/AMAJ11/Prayer" variant="flat" color="primary"
+                <v-btn icon href="https://github.com/AMAJ11/Prayer" variant="flat" color="primary"
                   rounded="10"><v-icon>mdi-github</v-icon></v-btn>
               </div>
             </v-card-actions>
@@ -213,9 +229,9 @@
             <v-img src="../assets/Screenshot from 2025-02-09 20-00-43.png" style="width:100%;max-height:350px"></v-img>
             <v-card-actions style="display: flex;justify-content: center;">
               <div>
-                <v-btn href="https://e-commerce-18px.vercel.app/" variant="flat" color="primary" rounded="10"
+                <v-btn icon href="https://e-commerce-18px.vercel.app/" variant="flat" color="primary" rounded="10"
                   class="mr-3"><v-icon>mdi-eye</v-icon></v-btn>
-                <v-btn href="https://github.com/AMAJ11/E-commerce" variant="flat" color="primary"
+                <v-btn icon href="https://github.com/AMAJ11/E-commerce" variant="flat" color="primary"
                   rounded="10"><v-icon>mdi-github</v-icon></v-btn>
               </div>
             </v-card-actions>
@@ -235,9 +251,32 @@
             <v-img src="../assets/4.png" style="width:100%;max-height:350px"></v-img>
             <v-card-actions style="display: flex;justify-content: center;">
               <div>
-                <v-btn href="https://amaj11.github.io/contact/" variant="flat" color="primary" rounded="10"
+                <v-btn icon href="https://amaj11.github.io/contact/" variant="flat" color="primary" rounded="10"
                   class="mr-3"><v-icon>mdi-eye</v-icon></v-btn>
-                <v-btn href="https://github.com/AMAJ11/contact-manager" variant="flat" color="primary"
+                <v-btn icon href="https://github.com/AMAJ11/contact-manager" variant="flat" color="primary"
+                  rounded="10"><v-icon>mdi-github</v-icon></v-btn>
+              </div>
+            </v-card-actions>
+          </v-card>
+
+        </v-col>
+        <v-col sm="6" cols="12">
+          <v-card class="bg-grey-lighten-3" variant="outlined">
+            <div class="bg-blue-lighten-3"> <v-card-title>Tripe App</v-card-title>
+              <v-card-text>
+                <p> A tripe Website <br> It develope with vue js&vuetify </p>
+              </v-card-text>
+            </div>
+
+            <v-divider :thickness="6" color="black" class="mb-2"></v-divider>
+            <v-img src="../assets/Screenshot (25).png" style="width:100%;max-height:350px"></v-img>
+            <v-img src="../assets//Screenshot (27).png"
+              style="width:100%;max-height:350px"></v-img>
+            <v-card-actions style="display: flex;justify-content: center;">
+              <div>
+                <v-btn icon href="https://travel-website-psi-tawny.vercel.app/" variant="flat" color="primary" rounded="10"
+                  class="mr-3"><v-icon>mdi-eye</v-icon></v-btn>
+                <v-btn icon href="https://github.com/AMAJ11/travelWebsite" variant="flat" color="primary"
                   rounded="10"><v-icon>mdi-github</v-icon></v-btn>
               </div>
             </v-card-actions>
