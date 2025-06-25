@@ -1,8 +1,8 @@
 <template>
   <div class="pro">
     <v-container>
-      <v-row class="">
-        <v-col cols="12" class="my-5 col px-5">
+      <v-row class="mt-4 mt-sm-0">
+        <v-col cols="12" class="my-2 col px-5">
           <p class="text-h5">
             <span style="color: #1b2590"> Hello</span>, Im Ammar Apo Jeab, Front-end developer. <br />
             I Study ITE in Damascuse university. <br />
