@@ -16,10 +16,10 @@
       </div>
 
       <div style="display: flex;justify-content: space-between;width:100%" class="hidden-sm-and-up px-5">
-        <v-btn class="hidden-sm-and-up" color="primary" to="/"> <v-icon>mdi-home</v-icon> </v-btn>
-        <v-btn class="hidden-sm-and-up" to="/about"> <v-icon>mdi-help</v-icon> </v-btn>
-        <v-btn class="hidden-sm-and-up" to="/project"> <v-icon>mdi-laptop</v-icon> </v-btn>
-        <v-btn class="hidden-sm-and-up" to="/contact"> <v-icon>mdi-phone</v-icon> </v-btn>
+        <v-btn icon class="hidden-sm-and-up"  :color="router == '/' ? 'primary' : ''" to="/"> <v-icon>mdi-home</v-icon> </v-btn>
+        <v-btn icon class="hidden-sm-and-up"  :color="router == '/about' ? 'primary' : ''" to="/about"> <v-icon>mdi-help</v-icon> </v-btn>
+        <v-btn icon class="hidden-sm-and-up"  :color="router == '/project' ? 'primary' : ''" to="/project"> <v-icon>mdi-laptop</v-icon> </v-btn>
+        <v-btn icon class="hidden-sm-and-up"  :color="router == '/contact' ? 'primary' : ''" to="/contact"> <v-icon>mdi-phone</v-icon> </v-btn>
       </div>
     </v-app-bar>
     <!-- <v-navigation-drawer style="position: fixed" class="hidden-md-and-up" v-model="this.op">
