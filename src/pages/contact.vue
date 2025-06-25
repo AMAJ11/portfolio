@@ -1,7 +1,7 @@
 <template>
-  <div class="contact">
+  <div class="contact pa-1 pa-sm-6 pt-16">
     <v-container>
-      <v-row class="ro mt-16">
+      <v-row class="ro pt-6 pt-sm-16 mt-2 mt-sm-16">
         <v-col cols="12" md="5" sm="5" style="height: 50vh; text-align: center">
           <h2>Contact Me</h2>
           <img src="../assets/R.gif" alt="" style="
@@ -48,7 +48,7 @@
                     size="xxx-large">mdi-whatsapp</v-icon></v-btn></a></v-col>
 
             <v-col cols="12" md="12">
-              <v-card class="mt-8" theme="dark" style="width: 80%;margin:auto">
+              <v-card class="mt-8" theme="dark" style="width: 100%;margin:auto">
                 <v-form @submit.prevent="validated" ref="form">
                   <v-text-field v-model="userName" label="Name" :rules="usernamerule"></v-text-field>
                   <v-text-field type="number" v-model="this.num" label="Phone Number" :rules="numRule"></v-text-field>
@@ -56,7 +56,9 @@
                   <v-btn type="submit" :loading="sendLoading" block>SEND</v-btn>
                 </v-form>
               </v-card>
-              <h2>Gmail: apo.zouher@gmail.com</h2>
+              <v-btn append-icon="mdi-email" class="mt-3" color="red" @click="copyEmail">
+                <v-icon left>mdi-content-copy</v-icon>
+                copy Email </v-btn>
             </v-col>
           </v-row>
         </v-col>
@@ -72,6 +74,14 @@
     </v-card>
 
   </v-dialog>
+  <v-snackbar color="primary" v-model="snackbar" :timeout="2000">
+    The email was copied successfully
+    <template class="bg-primary" v-slot:action="{ attrs }">
+      <v-btn color="blue" text v-bind="attrs" @click="snackbar = false">
+        close
+      </v-btn>
+    </template>
+  </v-snackbar>
 </template>
 
 <script>
@@ -80,6 +90,8 @@ export default {
   data: function () {
     return {
       show: false,
+      snackbar: false,
+      email: "apo.zouher@gmail.com",
       num: '',
       userName: "",
       message: "",
@@ -91,14 +103,14 @@ export default {
             return 'You must enter this Field.'
           }
         }],
-         numRule:
+      numRule:
         [() => {
           if (this.num) return true
           else {
             return 'You must enter this Field.'
           }
         }],
-         messageRule:
+      messageRule:
         [() => {
           if (this.message) return true
           else {
@@ -108,7 +120,14 @@ export default {
     }
   },
   methods: {
-
+    async copyEmail() {
+      try {
+        await navigator.clipboard.writeText(this.email);
+        this.snackbar = true; 
+      } catch (err) {
+        console.error("فشل النسخ: ", err);
+      }
+    },
     validated: async function () {
 
       const apiUrl = `https://api.telegram.org/bot7627006432:AAEOv-s0PkynaJVa7ewRfdGDPaEK_pncovY/sendMessage?chat_id=6568921630&text=${encodeURIComponent("Name: " + this.userName + "\n" + "Phone Number: " + this.num + "\n" + this.message)}`;
@@ -143,14 +162,10 @@ export default {
 </script>
 
 <style scoped>
-.contact {
-  padding: 10%;
-}
+.contact {}
 
 @media (max-width: 900px) {
-  .ro {
-    margin-top: 50px;
-  }
+  .ro {}
 }
 
 @keyframes social {
