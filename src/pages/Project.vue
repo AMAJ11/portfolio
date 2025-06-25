@@ -1,5 +1,6 @@
 <template>
   <div class="pro">
+    <v-container>
     <swiper :effect="'coverflow'" :grabCursor="true" :centeredSlides="true" :slidesPerView="'auto'" :coverflowEffect="{
       rotate: 60,
       stretch: 0,
@@ -121,7 +122,7 @@
 
     <div class="hidden-md-and-up mt-5" id="proj1">
       <h2 style="text-align: center;opacity: 0.3;">MY PROJECTS </h2>
-      <v-row class="mt-4 pa-5">
+      <v-row class="mt-4 pa-2">
 
         <v-col sm="6" cols="12">
           <v-card class="bg-grey-lighten-3" variant="outlined">
@@ -286,7 +287,7 @@
       </v-row>
     </div>
 
-
+</v-container>
   </div>
 </template>
 <script>
