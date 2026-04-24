@@ -42,9 +42,16 @@
 <script>
 export default {
   name: "AbHome",
-  created: () => {
+   created: function() {
+   
+    if(!localStorage.getItem('lang')){
+      localStorage.setItem('lang',"eng")
+    }else{
+      this.currentLang = localStorage.getItem('lang')
+    }
     
   },
+
   data() {
     return {
       currentLang: localStorage.getItem('lang'),

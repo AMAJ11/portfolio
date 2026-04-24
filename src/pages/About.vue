@@ -56,9 +56,19 @@ export default {
       return Math.ceil(ageInYears);
     }
   },
+  created: function() {
+   
+    if(!localStorage.getItem('lang')){
+      localStorage.setItem('lang',"eng")
+    }else{
+      this.currentLang = localStorage.getItem('lang')
+    }
+    
+  }
+  ,
   data() {
     return {
-      currentLang: localStorage.getItem('lang'),
+      currentLang:'',
        translate: {
         ar: {
           welcome: 'مرحبا',

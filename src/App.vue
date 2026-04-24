@@ -70,12 +70,18 @@
 <script>
 export default {
   name: "App",
-  created: () => {
-
+ created: function() {
+   
+    if(!localStorage.getItem('lang')){
+      localStorage.setItem('lang',"eng")
+    }else{
+      this.currentLang = localStorage.getItem('lang') 
+    }
+    
   },
   data() {
     return {
-      currentLang: localStorage.getItem('lang'),
+      currentLang: '',
       navLinks: [
         { name: { eng: 'Home', AR:'الرئيسية' }, path: '/', icon: 'mdi-home-variant-outline' },
         { name: { eng: 'About', AR:'حول' }, path: '/about', icon: 'mdi-account-outline' },

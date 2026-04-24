@@ -123,6 +123,15 @@ export default {
       ]
     };
   },
+   created: function(){
+   
+    if(!localStorage.getItem('lang')){
+      localStorage.setItem('lang',"eng")
+    }else{
+      this.currentLang = localStorage.getItem('lang')
+    }
+    
+  },
   methods: {
     async copyEmail() {
       await navigator.clipboard.writeText(this.email);

@@ -129,6 +129,15 @@ export default {
       ]
     };
   },
+   created: function(){ 
+   
+    if(!localStorage.getItem('lang')){
+      localStorage.setItem('lang',"eng")
+    }else{
+      this.currentLang = localStorage.getItem('lang')
+    }
+    
+  },
   methods: {
     getImgUrl(pic) {
       return new URL(`../assets/${pic}`, import.meta.url).href;
