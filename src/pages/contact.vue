@@ -1,198 +1,234 @@
 <template>
-  <div class="contact pa-1 pa-sm-6 pt-16">
+  <div class="contact-section">
     <v-container>
-      <v-row class="ro pt-6 pt-sm-16 mt-2 mt-sm-16">
-        <v-col cols="12" md="5" sm="5" style="height: 50vh; text-align: center">
-          <h2>Contact Me</h2>
-          <img src="../assets/R.gif" alt="" style="
-            width: 100%;
-            border-radius: 30px;
-            height: 80%;
-            max-width: 400px;
-            max-height: 300px;
-          " data-aos="flip-left" data-aos-duration="1500" />
+      <div class="header-box text-center mb-12">
+        <h2 class="text-h3 font-weight-black text-white">GET IN <span class="text-primary">TOUCH</span></h2>
+        <div class="underline mx-auto"></div>
+      </div>
+
+      <v-row justify="center">
+        <v-col cols="12" lg="5" class="d-flex flex-column">
+          <v-card class="info-glass-card pa-6 mb-6 flex-grow-1 d-flex flex-column align-center justify-center">
+            <div class="gif-container mb-6">
+              <img src="../assets/R.gif" alt="contact" class="contact-gif" />
+            </div>
+            
+            <div class="social-wrapper">
+              <v-btn v-for="(social, i) in socials" :key="i" 
+                :href="social.link" 
+                target="_blank"
+                icon 
+                :color="social.color" 
+                class="social-btn"
+                variant="flat"
+                size="large"
+              >
+                <v-icon size="26">{{ social.icon }}</v-icon>
+              </v-btn>
+            </div>
+          </v-card>
+
+          <v-card class="email-glass-card pa-4 d-flex align-center justify-space-between" @click="copyEmail">
+            <div class="d-flex align-center">
+              <v-icon color="primary" class="mr-3">mdi-email-fast-outline</v-icon>
+              <span class="text-body-2 font-weight-bold">{{ email }}</span>
+            </div>
+            <v-icon size="small" color="grey">mdi-content-copy</v-icon>
+          </v-card>
         </v-col>
-        <v-spacer></v-spacer>
-        <v-col cols="12" md="6" sm="6" style="border-radius: 15px; text-align: center">
-          <v-row>
-            <v-col style="animation-delay: 0.2s" cols="6" md="4"><a href="https://www.facebook.com/ammar.aj.927"><v-btn
-                  class="social" style="height: 100px; width: 100px; border-radius: 50%" color="primary"><v-icon
-                    size="xxx-large">mdi-facebook</v-icon></v-btn></a></v-col>
 
-            <v-col cols="6" md="4" style=""><a href="https://www.instagram.com/ammar.aj.927/"><v-btn class="social"
-                  style="
-                  animation-delay: 0.9s;
-                  height: 100px;
-                  width: 100px;
-                  border-radius: 50%;
-                " color="red"><v-icon size="xxx-large">mdi-instagram</v-icon></v-btn></a></v-col>
+        <v-col cols="12" lg="6">
+          <v-card class="form-glass-card pa-8">
+            <h3 class="text-h5 font-weight-bold mb-6 text-white">Send me a message</h3>
+            <v-form ref="form" @submit.prevent="submitForm">
+              <v-row>
+                <v-col cols="12" md="6">
+                  <v-text-field
+                    v-model="userName"
+                    label="Name"
+                    variant="filled"
+                    bg-color="rgba(255,255,255,0.05)"
+                    :rules="[v => !!v || 'Name is required']"
+                    rounded="lg"
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="12" md="6">
+                  <v-text-field
+                    v-model="num"
+                    label="Phone"
+                    type="number"
+                    variant="filled"
+                    bg-color="rgba(255,255,255,0.05)"
+                    :rules="[v => !!v || 'Phone is required']"
+                    rounded="lg"
+                  ></v-text-field>
+                </v-col>
+                <v-col cols="12">
+                  <v-textarea
+                    v-model="message"
+                    label="Your Message"
+                    variant="filled"
+                    bg-color="rgba(255,255,255,0.05)"
+                    :rules="[v => !!v || 'Message is required']"
+                    rows="5"
+                    rounded="lg"
+                  ></v-textarea>
+                </v-col>
+              </v-row>
 
-            <v-col cols="6" md="4" style=""><a href="https://github.com/AMAJ11/"><v-btn class="social" style="
-                  animation-delay: 0.3s;
-                  height: 100px;
-                  width: 100px;
-                  border-radius: 50%;
-                " color="dark"><v-icon size="xxx-large">mdi-github</v-icon></v-btn></a></v-col>
-
-            <v-col cols="6" md="6" style=""><a href="https://www.linkedin.com/in/ammar-amaj-606579202/"><v-btn
-                  class="social" style="
-                  animation-delay: 0.4s;
-                  height: 100px;
-                  width: 100px;
-                  border-radius: 50%;
-                " color="white"><v-icon size="xxx-large" color="primary">mdi-linkedin</v-icon></v-btn></a></v-col>
-
-            <v-col cols="6" md="6">
-              <a href="https://api.whatsapp.com/send/?phone=963937379312">
-                <v-btn class="social" style="height: 100px; width: 100px; border-radius: 50%" color="success"><v-icon
-                    size="xxx-large">mdi-whatsapp</v-icon></v-btn></a></v-col>
-
-            <v-col cols="12" md="12">
-              <v-card class="mt-8" theme="dark" style="width: 100%;margin:auto">
-                <v-form @submit.prevent="validated" ref="form">
-                  <v-text-field v-model="userName" label="Name" :rules="usernamerule"></v-text-field>
-                  <v-text-field type="number" v-model="this.num" label="Phone Number" :rules="numRule"></v-text-field>
-                  <v-textarea v-model="this.message" label="Message" :rules="messageRule"></v-textarea>
-                  <v-btn type="submit" :loading="sendLoading" block>SEND</v-btn>
-                </v-form>
-              </v-card>
-              <v-btn append-icon="mdi-email" class="mt-3" color="red" @click="copyEmail">
-                <v-icon left>mdi-content-copy</v-icon>
-                copy Email </v-btn>
-            </v-col>
-          </v-row>
+              <v-btn 
+                type="submit" 
+                block 
+                height="55" 
+                color="primary" 
+                class="submit-btn mt-4 font-weight-bold"
+                :loading="sendLoading"
+                elevation="0"
+              >
+                SEND MESSAGE
+                <v-icon end>mdi-send-outline</v-icon>
+              </v-btn>
+            </v-form>
+          </v-card>
         </v-col>
       </v-row>
     </v-container>
-  </div>
-  <v-dialog v-model="show" class="w-75 w-md-50">
-    <v-card class=""><v-card-title class="text-success" style="height: 20vh;"> Message Sending Successfully
-      </v-card-title>
-      <v-card-actions>
-        <v-btn color="red" append-icon="mdi-close" @click="this.show = false">close</v-btn>
-      </v-card-actions>
-    </v-card>
 
-  </v-dialog>
-  <v-snackbar color="primary" v-model="snackbar" :timeout="2000">
-    The email was copied successfully
-    <template class="bg-primary" v-slot:action="{ attrs }">
-      <v-btn color="blue" text v-bind="attrs" @click="snackbar = false">
-        close
-      </v-btn>
-    </template>
-  </v-snackbar>
+    <v-snackbar v-model="snackbar" :color="snackColor" timeout="3000" rounded="pill">
+      {{ snackText }}
+    </v-snackbar>
+  </div>
 </template>
 
 <script>
 import axios from 'axios';
+
 export default {
-  data: function () {
+  data() {
     return {
-      show: false,
-      snackbar: false,
-      email: "apo.zouher@gmail.com",
-      num: '',
       userName: "",
+      num: "",
       message: "",
+      email: "apo.zouher@gmail.com",
       sendLoading: false,
-      usernamerule:
-        [() => {
-          if (this.userName) return true
-          else {
-            return 'You must enter this Field.'
-          }
-        }],
-      numRule:
-        [() => {
-          if (this.num) return true
-          else {
-            return 'You must enter this Field.'
-          }
-        }],
-      messageRule:
-        [() => {
-          if (this.message) return true
-          else {
-            return 'You must enter this Field.'
-          }
-        }],
-    }
+      snackbar: false,
+      snackText: "",
+      snackColor: "primary",
+      socials: [
+        { icon: 'mdi-facebook', color: '#1877F2', link: 'https://www.facebook.com/ammar.aj.927' },
+        { icon: 'mdi-instagram', color: '#E4405F', link: 'https://www.instagram.com/ammar.aj.927/' },
+        { icon: 'mdi-github', color: '#24292e', link: 'https://github.com/AMAJ11/' },
+        { icon: 'mdi-linkedin', color: '#0077B5', link: 'https://www.linkedin.com/in/ammar-amaj-606579202/' },
+        { icon: 'mdi-whatsapp', color: '#25D366', link: 'https://wa.me/963937379312' }
+      ]
+    };
   },
   methods: {
     async copyEmail() {
-      try {
-        await navigator.clipboard.writeText(this.email);
-        this.snackbar = true; 
-      } catch (err) {
-        console.error("فشل النسخ: ", err);
-      }
+      await navigator.clipboard.writeText(this.email);
+      this.snackText = "Email copied to clipboard!";
+      this.snackColor = "primary";
+      this.snackbar = true;
     },
-    validated: async function () {
+    async submitForm() {
+      const { valid } = await this.$refs.form.validate();
+      if (!valid) return;
 
-      const apiUrl = `https://api.telegram.org/bot7627006432:AAEOv-s0PkynaJVa7ewRfdGDPaEK_pncovY/sendMessage?chat_id=6568921630&text=${encodeURIComponent("Name: " + this.userName + "\n" + "Phone Number: " + this.num + "\n" + this.message)}`;
-      await this.$refs.form.validate()
-        .then(valid => {
-          if (valid.valid == true) {
-            this.sendLoading = true
-            axios.post(apiUrl)
-              .then(response => {
+      this.sendLoading = true;
+      const botToken = '8780682215:AAHPdQNLq7HJiCJXkGD6wRoAbMKpPFwBFM0';
+      const chatId = '6568921630';
+      const text = `📬 New Contact Request\n\n👤 Name: ${this.userName}\n📞 Phone: ${this.num}\n💬 Message: ${this.message}`;
 
-                console.log('Message sent:', response.data);
-                this.show = true;
-
-                this.sendLoading = false
-              })
-              .catch(error => {
-                console.error('Error sending message:', error);
-              });
-          }
-          this.num = null
-          this.userName = null
-          this.message = null
-        })
+      try {
+        await axios.post(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+          chat_id: chatId,
+          text: text
+        });
+        this.snackText = "Message sent successfully!";
+        this.snackColor = "success";
+        this.snackbar = true;
+        this.userName = ""; this.num = ""; this.message = "";
+        this.$refs.form.resetValidation();
+      } catch (error) {
+        this.snackText = "Failed to send message.";
+        this.snackColor = "error";
+        this.snackbar = true;
+      } finally {
+        this.sendLoading = false;
+      }
     }
-
-
-
-  },
-
-
+  }
 };
 </script>
 
 <style scoped>
-.contact {}
-
-@media (max-width: 900px) {
-  .ro {}
-}
-
-@keyframes social {
-  0% {
-    translate: 0px 5px;
-  }
-
-  100% {
-    translate: -0px -5px;
-  }
-}
-
-.social {
-  animation-name: social;
-  animation-duration: 0.8s;
-  animation-timing-function: linear;
-  animation-direction: alternate;
-  animation-iteration-count: infinite;
-  transition: 0.5s;
-}
-
-.social:hover {
-  animation: none;
-  scale: 1.1;
-}
-
-.contact {
+.contact-section {
   min-height: 100vh;
+  padding: 80px 0;
+  background-color: #0f111a;
+  color: white;
+}
+
+.underline {
+  width: 70px;
+  height: 4px;
+  background: #4296db;
+  border-radius: 2px;
+}
+
+/* Glassmorphism Cards */
+.info-glass-card, .form-glass-card, .email-glass-card {
+  background: rgba(255, 255, 255, 0.03) !important;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 24px !important;
+  transition: transform 0.3s ease;
+}
+
+.email-glass-card {
+  cursor: pointer;
+  border-radius: 16px !important;
+}
+
+.email-glass-card:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+.contact-gif {
+  width: 100%;
+  max-width: 320px;
+  border-radius: 20px;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+}
+
+.social-wrapper {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.social-btn {
+  transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+  transform: translateY(-5px);
+  filter: brightness(1.2);
+}
+
+.submit-btn {
+  border-radius: 12px !important;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+/* Inputs styling */
+:deep(.v-field__outline) {
+  display: none;
+}
+
+:deep(.v-field__input) {
+  color: white !important;
 }
 </style>

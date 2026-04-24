@@ -1,47 +1,67 @@
-<template>
+<template >
   <router-view class="view" />
   <v-layout>
-    <v-app-bar class="pr-5">
-      <v-app-bar-title class="hidden-xs">AMAJ</v-app-bar-title>
-      <v-spacer></v-spacer>
-      <v-btn class="hidden-sm-and-down" :color="router == '/' ? 'primary' : ''" to="/">Home</v-btn>
-      <v-btn class="hidden-sm-and-down" :color="router == '/about' ? 'primary' : ''" to="/about">About</v-btn>
-      <v-btn class="hidden-sm-and-down" :color="router == '/project' ? 'primary' : ''" to="/project">project</v-btn>
-      <v-btn class="hidden-sm-and-down" :color="router == '/contact' ? 'primary' : ''" to="/contact">Contact</v-btn>
-      <div style="display: flex;justify-content: space-between;" class="hidden-md-and-up hidden-xs">
-        <v-btn class="hidden-md-and-up hidden-xs" color="primary" to="/"> <v-icon>mdi-home</v-icon> </v-btn>
-        <v-btn class="hidden-md-and-up hidden-xs" to="/about"> <v-icon>mdi-help</v-icon> </v-btn>
-        <v-btn class="hidden-md-and-up hidden-xs" to="/project"> <v-icon>mdi-laptop</v-icon> </v-btn>
-        <v-btn class="hidden-md-and-up hidden-xs" to="/contact"> <v-icon>mdi-phone</v-icon> </v-btn>
-      </div>
+  <v-app-bar 
+   :style="{ direction: currentLang === 'eng' ? 'ltr' : 'rtl' }"
+    flat 
+    class="custom-navbar px-md-10" 
+    height="75"
+  >
+    <v-app-bar-title class="logo-text font-weight-black text-subtitle-2 text-sm-h5">
+      AM<span class="text-primary">AJ</span>
+    </v-app-bar-title>
 
-      <div style="display: flex;justify-content: space-between;width:100%" class="hidden-sm-and-up px-5">
-        <v-btn icon class="hidden-sm-and-up" :color="router == '/' ? 'primary' : ''" to="/"> <v-icon>mdi-home</v-icon>
+    <v-spacer></v-spacer>
+
+    <div class="hidden-sm-and-down nav-links">
+      <v-btn 
+        v-for="link in navLinks" 
+        :key="link.path"
+        :to="link.path"
+        variant="text"
+        :class="['nav-btn', { 'active-link': router === link.path }]"
+      >
+        {{ currentLang == "eng"? link.name.eng : link.name.AR }}
+      </v-btn>
+        <v-btn 
+          icon 
+          size="x-small" 
+          color="primary" 
+          variant="flat"
+          @click="toggleLanguage"
+          class="rounded-circle"
+        >
+          {{ currentLang === 'eng' ? 'EN' : 'AR' }}
         </v-btn>
-        <v-btn icon class="hidden-sm-and-up" :color="router == '/about' ? 'primary' : ''" to="/about">
-          <v-icon>mdi-help</v-icon> </v-btn>
-        <v-btn icon class="hidden-sm-and-up" :color="router == '/project' ? 'primary' : ''" to="/project">
-          <v-icon>mdi-laptop</v-icon> </v-btn>
-        <v-btn icon class="hidden-sm-and-up" :color="router == '/contact' ? 'primary' : ''" to="/contact">
-          <v-icon>mdi-phone</v-icon> </v-btn>
-      </div>
-    </v-app-bar>
-    <!-- <v-navigation-drawer style="position: fixed" class="hidden-md-and-up" v-model="this.op">
-      <v-list>
-        <v-list-item append-icon="mdi-home" color="primary" title="Home" to="/" value="home"></v-list-item>
-        <v-list-item append-icon="mdi-help" color="primary" title="About" to="/about" value="About"></v-list-item>
-        <v-list-item append-icon="mdi-laptop" color="primary" title="Projects" to="/project"
-          value="Projects"></v-list-item>
-        <v-list-item append-icon="mdi-phone" color="primary" title="Contact" value="Contact"
-          to="/contact"></v-list-item>
-      </v-list>
-    </v-navigation-drawer> -->
+    </div>
+
+    <div class="hidden-md-and-up mobile-nav-box">
+      <v-btn 
+        v-for="link in navLinks" 
+        :key="'mob-' + link.path"
+        :to="link.path"
+        icon
+        variant="text"
+        size="small"
+        :color="router === link.path ? 'primary' : 'white'"
+        class="mob-icon-btn"
+      >
+        <v-icon>{{ link.icon }}</v-icon>
+      </v-btn>
+      <v-btn 
+          icon 
+          size="x-small" 
+          color="primary" 
+          variant="flat"
+          @click="toggleLanguage"
+          class="rounded-circle"
+        >
+          {{ currentLang === 'eng' ? 'EN' : 'AR' }}
+        </v-btn>
+    </div>
+  </v-app-bar>
+
   </v-layout>
-  <!-- <v-fab-transition>
-    <v-btn v-show="showBackToTop" color="primary" fab dark fixed bottom right @click="scrollToTop">
-      <v-icon>mdi-arrow-up</v-icon>
-    </v-btn>
-  </v-fab-transition> -->
     <v-btn icon  v-if="showBackToTop" color="primary" @click="scrollToTop" class="scroll-to-top" size="small">
     <v-icon>mdi-arrow-up</v-icon>
   </v-btn>
@@ -55,12 +75,25 @@ export default {
   },
   data() {
     return {
+      currentLang: localStorage.getItem('lang'),
+      navLinks: [
+        { name: { eng: 'Home', AR:'الرئيسية' }, path: '/', icon: 'mdi-home-variant-outline' },
+        { name: { eng: 'About', AR:'حول' }, path: '/about', icon: 'mdi-account-outline' },
+        { name: { eng: 'Projects', AR:'المشاريع' }, path: '/project', icon: 'mdi-briefcase-outline' },
+        { name: { eng: 'Contact', AR:'اتصل بنا' }, path: '/contact', icon: 'mdi-email-outline' },
+      ],
       op: false,
       showBackToTop: false,
 
     };
   },
   methods: {
+    toggleLanguage() {
+  
+      this.currentLang = this.currentLang === 'eng' ? 'ar' : 'eng';
+      localStorage.setItem('lang', this.currentLang);
+      location.reload();
+  },
     open: function () {
       this.op = !this.op;
     },
@@ -100,6 +133,75 @@ export default {
   position: fixed;
   bottom: 20px;
   right: 20px;
+}
+
+.custom-navbar {
+  background: transparent !important;
+  backdrop-filter: blur(12px);
+  position: fixed !important;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo-text {
+  letter-spacing: 2px;
+  color: white;
+}
+
+/* تنسيق الروابط للكمبيوتر */
+.nav-links {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-btn {
+  text-transform: none !important;
+  font-weight: 500;
+  color: #b0b3b8;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-btn:hover {
+  color: white;
+}
+
+/* تأثير الخط السفلي للرابط النشط */
+.active-link {
+  color: #4296db !important;
+}
+
+.active-link::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 25%;
+  width: 50%;
+  height: 2px;
+  background: #4296db;
+  border-radius: 2px;
+}
+
+/* تنسيق الجوال */
+.mobile-nav-box {
+  display: flex;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 5px 15px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mob-icon-btn {
+  margin: 0 4px;
+}
+
+@media (max-width: 600px) {
+  .custom-navbar {
+    height: 65px !important;
+  }
+  .mobile-nav-box {
+    padding: 2px 8px;
+  }
 }
 
 </style>
