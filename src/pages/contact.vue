@@ -1,8 +1,9 @@
 <template>
   <div class="contact-section">
-    <v-container>
+    <v-container :style="{ direction: currentLang === 'eng' ? 'ltr' : 'rtl' }">
       <div class="header-box text-center mb-12">
-        <h2 class="text-h3 font-weight-black text-white">GET IN <span class="text-primary">TOUCH</span></h2>
+        <h2 v-if="currentLang=='eng'" class="text-h3 font-weight-black text-white">GET IN <span class="text-primary">TOUCH</span></h2>
+        <h2 v-else class="text-h3 font-weight-black text-white">تواصل<span class="text-primary"> معي</span></h2>
         <div class="underline mx-auto"></div>
       </div>
 
@@ -39,37 +40,37 @@
 
         <v-col cols="12" lg="6">
           <v-card class="form-glass-card pa-8">
-            <h3 class="text-h5 font-weight-bold mb-6 text-white">Send me a message</h3>
+            <h3 class="text-h5 font-weight-bold mb-6 text-white"> {{ translate[currentLang]?.send }} </h3>
             <v-form ref="form" @submit.prevent="submitForm">
               <v-row>
                 <v-col cols="12" md="6">
                   <v-text-field
                     v-model="userName"
-                    label="Name"
+                    :label="translate[currentLang]?.nameMessage"
                     variant="filled"
                     bg-color="rgba(255,255,255,0.05)"
-                    :rules="[v => !!v || 'Name is required']"
+                    :rules="[v => !!v || translate[currentLang]?.nameMessageErr]"
                     rounded="lg"
                   ></v-text-field>
                 </v-col>
                 <v-col cols="12" md="6">
                   <v-text-field
                     v-model="num"
-                    label="Phone"
+                    :label="translate[currentLang]?.phoneMessage"
                     type="number"
                     variant="filled"
                     bg-color="rgba(255,255,255,0.05)"
-                    :rules="[v => !!v || 'Phone is required']"
+                    :rules="[v => !!v || translate[currentLang]?.phoneMessageErr]"
                     rounded="lg"
                   ></v-text-field>
                 </v-col>
                 <v-col cols="12">
                   <v-textarea
                     v-model="message"
-                    label="Your Message"
                     variant="filled"
                     bg-color="rgba(255,255,255,0.05)"
-                    :rules="[v => !!v || 'Message is required']"
+                    :rules="[v => !!v || translate[currentLang]?.messageMessageErr]"
+                    :label="translate[currentLang]?.messageMessage"
                     rows="5"
                     rounded="lg"
                   ></v-textarea>
@@ -85,7 +86,7 @@
                 :loading="sendLoading"
                 elevation="0"
               >
-                SEND MESSAGE
+                {{ translate[currentLang]?.sendbtn }}
                 <v-icon end>mdi-send-outline</v-icon>
               </v-btn>
             </v-form>
@@ -106,6 +107,29 @@ import axios from 'axios';
 export default {
   data() {
     return {
+        translate: {
+        ar: {
+          send: 'أرسل لي رسالة',
+          sendbtn:'ارسال',
+          nameMessage:'الاسم ',
+          phoneMessage:'رقم الهاتف ',
+          messageMessage:'الرسالة ',
+          nameMessageErr:'الاسم مطلوب',
+          phoneMessageErr:'رقم الهاتف مطلوب',
+          messageMessageErr:'الرسالة مطلوبة'
+        },
+        eng:{
+          send: 'Send me Message',
+          sendbtn:'send',
+          nameMessage:'Name ',
+          phoneMessage:'Phone ',
+          messageMessage:'Message',
+          nameMessageErr:'Name is required',
+          phoneMessageErr:'Phone is required',
+          messageMessageErr:'Message is required'
+        }
+        },
+      currentLang: '',
       userName: "",
       num: "",
       message: "",
@@ -135,7 +159,7 @@ export default {
   methods: {
     async copyEmail() {
       await navigator.clipboard.writeText(this.email);
-      this.snackText = "Email copied to clipboard!";
+      this.currentLang=="eng" ? this.snackText = "Email copied to clipboard!": this.snackText = "تم نسخ البريد الإلكتروني!";
       this.snackColor = "primary";
       this.snackbar = true;
     },
