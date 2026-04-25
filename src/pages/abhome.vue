@@ -11,7 +11,7 @@
             {{ translate[currentLang]?.subtitle }}
           </h3>
           <div class="btn-group" data-aos="fade-up" data-aos-duration="1000">
-            <v-btn color="primary" size="large" variant="elevated" href="/public/Ammar apo jeab.pdf" download
+            <v-btn color="primary" size="large" variant="elevated" href="/public/files/Ammar apo jeab.pdf" download
               class="download-btn px-8">
               {{ translate[currentLang]?.download }}
               <v-icon end>mdi-download</v-icon>

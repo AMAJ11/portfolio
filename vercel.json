@@ -1,9 +1,16 @@
 {
-    "rewrites": [
-      {
-        "source": "/(.*)",
-        "destination": "/index.html"
-      }
-    ]
-  }
-  
+  "rewrites": [
+    {
+      "source": "/cv.pdf",
+      "destination": "/cv.pdf"
+    },
+    {
+      "source": "/files/(.*)",
+      "destination": "/files/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
