@@ -1,10 +1,6 @@
 {
   "rewrites": [
-    {
-      "source": "/cv.pdf",
-      "destination": "/cv.pdf"
-    },
-    {
+  {
       "source": "/files/(.*)",
       "destination": "/files/$1"
     },
