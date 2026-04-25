@@ -1,5 +1,5 @@
 <template>
-  <div class="home-wrapper" >
+  <div class="home-wrapper">
     <v-container :style="{ direction: currentLang === 'eng' ? 'ltr' : 'rtl' }">
       <v-row class="mt-0 align-center" style="min-height: 80vh;">
         <v-col cols="12" sm="8" md="7" lg="7">
@@ -8,13 +8,12 @@
             <span class="text-gradient">{{ translate[currentLang]?.title }}</span>
           </h1>
           <h3 class="hero-subtitle mb-8" data-aos="fade-right" data-aos-duration="1200">
-          {{ translate[currentLang]?.subtitle }}
+            {{ translate[currentLang]?.subtitle }}
           </h3>
           <div class="btn-group" data-aos="fade-up" data-aos-duration="1000">
-            <v-btn color="primary" size="large" variant="elevated" target="_blank"
-              href="https://drive.google.com/file/d/1pZHca13VQ8N79n0xyhrtEv-TEmcMSDKz/view?usp=sharing"
+            <v-btn color="primary" size="large" variant="elevated" href="/public/Ammar apo jeab.pdf" download
               class="download-btn px-8">
-            {{ translate[currentLang]?.download }}
+              {{ translate[currentLang]?.download }}
               <v-icon end>mdi-download</v-icon>
             </v-btn>
           </div>
@@ -22,7 +21,8 @@
 
         <v-col class=" d-flex justify-center" sm="4" md="5" lg="5" style="border-radius: 20px;">
           <div class="hidden-sm-and-down profile-card" style="border-radius: 20px;">
-            <img src="../assets/AMAJ__1_-removebg-preview.png" alt="Ammar" style="border-radius: 20px;" class="profile-img">
+            <img src="../assets/AMAJ__1_-removebg-preview.png" alt="Ammar" style="border-radius: 20px;"
+              class="profile-img">
             <span class="border-line top"></span>
             <span class="border-line right"></span>
             <span class="border-line bottom"></span>
@@ -42,14 +42,14 @@
 <script>
 export default {
   name: "AbHome",
-   created: function() {
-   
-    if(!localStorage.getItem('lang')){
-      localStorage.setItem('lang',"eng")
-    }else{
+  created: function () {
+
+    if (!localStorage.getItem('lang')) {
+      localStorage.setItem('lang', "eng")
+    } else {
       this.currentLang = localStorage.getItem('lang')
     }
-    
+
   },
 
   data() {
@@ -57,16 +57,16 @@ export default {
       currentLang: localStorage.getItem('lang'),
       translate: {
         ar: {
-         name: 'عمار أبو جيب',
-         title: 'مطور ويب متكامل',
-         subtitle: 'أنا مطور ويب متكامل شغوف ببناء تطبيقات الويب القابلة للتوسع وتحسين مهاراتي باستمرار.',
-         download: 'تحميل سيرتي الذاتية'
+          name: 'عمار أبو جيب',
+          title: 'مطور ويب متكامل',
+          subtitle: 'أنا مطور ويب متكامل شغوف ببناء تطبيقات الويب القابلة للتوسع وتحسين مهاراتي باستمرار.',
+          download: 'تحميل سيرتي الذاتية'
         },
         eng: {
-         name: 'Ammar AJ',
-         title: 'FullStack Developer',
-         subtitle: 'I’m a Full-Stack Developer passionate about building scalable web applications and continuously improving my skills.',
-         download: 'Download My CV'
+          name: 'Ammar AJ',
+          title: 'FullStack Developer',
+          subtitle: 'I’m a Full-Stack Developer passionate about building scalable web applications and continuously improving my skills.',
+          download: 'Download My CV'
 
         }
       }
